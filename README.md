@@ -1,10 +1,10 @@
 # Sarathi: design note
 
-Sarathi is a private, local-first AI board for career, home and family. It runs on one laptop. This repository is the design note only. The code is private, and so is every piece of personal data.
+Sarathi is a private, local-first AI board for career, home and family: 20 agents and a voice assistant on one 6 GB laptop GPU. This repository is the design note only. The code is private, and so is every piece of personal data.
 
 ## My part
 
-The architecture, the agents, the claim and privacy rules, and the held-out checks.
+Designed the architecture, the agents, the claim and privacy rules, and the held-out checks.
 
 ## The problem
 
@@ -14,9 +14,8 @@ An assistant that handles mail, a calendar and job applications sees everything 
 
 - **Front end:** React 19, with a three.js avatar.
 - **Back end:** FastAPI, one process, on 127.0.0.1 only.
-- **Agents:** local LLM agents run on a schedule and share one GPU by lease. The model is qwen3 on Ollama, on an RTX 3060 Laptop GPU with 6 GB.
+- **Agents:** 20 local LLM agents share one GPU by lease; 17 run on a schedule or a trigger, 3 on a person's turn. The model is qwen3 on Ollama, on an RTX 3060 Laptop GPU with 6 GB.
 - **Gateway:** the only path to the network. It allows fixed hosts only and logs every request.
-- **Agents:** 20; 17 run on a schedule or a trigger, 3 on a person's turn.
 
 ## Mitra, the voice assistant
 
@@ -26,10 +25,10 @@ An assistant that handles mail, a calendar and job applications sees everything 
 - **Speech out:** AI4Bharat Indian voices.
 
 Measured:
-- First audio of a short reply: 1.8 s → 0.3 s after moving the voice to the GPU (median of 3 runs).
+- First audio of a three-word reply: 1.8 s → 0.3 s after moving the voice to the GPU (median of 3 runs).
 - First sentence, timed live: 0.7–1.1 s.
 - Generation: 42–44 tokens per second on the 6 GB laptop GPU.
-- Scenes acted out from conversation: 0 false triggers in 22 held-out chats; 38 of 42 asks caught.
+- Scenes (physical actions Mitra acts out) triggered from conversation: 0 false triggers in 22 held-out chats; 38 of 42 asks caught.
 
 ## The apply agent
 
@@ -46,7 +45,7 @@ A document fails if any claim does not trace to the master resume. The agent nev
 
 ## How it is checked
 
-- All 3,217 automated tests passed in the full run of 12 Oct 2026.
+- 3,225 automated tests as of 17 Oct 2026; all 3,217 in the full run of 12 Oct passed.
 - Mitra's blind pass rate: 47.7% → 77.3%, first vs latest round, each round judged on a fresh set of 44 asks written by a separate agent. Fixes are made on the training set; each blind set is new.
 - Changes are scored on held-out sets they were never tuned on.
 - AI coding agents write the code to my specs; the tests and the held-out checks decide what ships.
