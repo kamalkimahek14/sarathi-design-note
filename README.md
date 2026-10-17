@@ -42,7 +42,7 @@ A document fails if any claim does not trace to the master resume. The agent nev
 ## How it is checked
 
 - 3,225 automated tests as of 17 Oct 2026; all 3,217 passed in the full run of 12 Oct. 20 agents: 17 run on a schedule or a trigger, 3 on a person's turn.
-- Mitra's blind pass rate: 47.7% → 77.3%, first vs latest round, each round judged on a fresh set of 44 asks written by a separate agent. Fixes are made on the training set only.
+- Mitra's blind pass rate: 47.7% → 77.3%, first vs latest round, each round judged on a fresh set of 44 asks written by a separate agent. Fixes are made on the training set; each blind set is new.
 - Changes are scored on held-out sets they were never tuned on.
 - AI coding agents write the code to my specs; the tests and the held-out checks decide what ships.
 
