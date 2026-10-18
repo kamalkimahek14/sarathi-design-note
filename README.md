@@ -48,7 +48,7 @@ In use, 9–15 Oct 2026: 17 applications prepared (a tailored resume and cover l
 ## How it is checked
 
 - 3,217 automated tests, all passing in the full run of 12 Oct 2026.
-- Mitra's held-out pass rate: 47.7% → 77.3% (21 → 34 of 44 test prompts; a prompt passes only if an LLM judge gives every one of 10 rubric items 0.9 or more), round 22 to the best round, 25; rounds 26 and 27 scored 70.5% and 65.9%. Each set is written fresh by a separate agent. Fixes are made on the dev set; each held-out test set is new.
+- Mitra's held-out pass rate: 47.7% in round 22 → 71.2% averaged over rounds 25–27 (best 77.3%, latest 65.9%; 44 test prompts a round, about ±14 points per round; a prompt passes only if an LLM judge gives every one of 10 rubric items 0.9 or more). Each set is written fresh by a separate agent. Fixes are made on the dev set; each held-out test set is new.
 - Changes are scored on held-out sets they were never tuned on.
 - Spec-driven development: I design the system and write the specs, AI coding agents implement them, and the tests and held-out evals decide what ships.
 
