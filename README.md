@@ -25,10 +25,10 @@ An assistant that handles mail, a calendar and job applications sees everything 
 - **Speech out:** AI4Bharat Indian voices.
 
 Measured:
-- Time to first audio for a three-word reply: 1.8 s → 0.3 s after moving the voice to the GPU (median of 3 runs).
+- Text-to-speech time to first audio for a three-word reply: 1.8 s → 0.3 s after moving the voice to the GPU (median of 3 runs).
 - First sentence, timed live: 0.7–1.1 s.
 - Generation: 42–44 tokens per second on the 6 GB laptop GPU.
-- Scenes (physical actions Mitra acts out) triggered from conversation: 0 false triggers in 22 held-out chats; 38 of 42 asks caught.
+- Scenes (physical actions Mitra acts out) triggered from conversation: 0 false positives in 22 held-out chats; recall 38 of 42.
 
 ## The apply agent
 
@@ -46,9 +46,14 @@ A document fails if any claim does not trace to the master resume. The agent nev
 ## How it is checked
 
 - 3,217 automated tests, all passing in the full run of 12 Oct 2026.
-- Mitra's blind pass rate: 47.7% → 77.3%, first vs latest round, each round judged on a fresh set of 44 asks written by a separate agent. Fixes are made on the training set; each blind set is new.
+- Mitra's held-out pass rate: 47.7% → 77.3% (21 → 34 of 44 test prompts), first vs latest round, each set written fresh by a separate agent. Fixes are made on the training set; each blind set is new.
 - Changes are scored on held-out sets they were never tuned on.
 - AI coding agents write the code to my specs; the tests and the held-out checks decide what ships.
+
+## Limits
+
+- Each held-out set has 44 test prompts, so one prompt moves the pass rate by about 2.3 points, and each round's set is new.
+- The latency figures are medians of 3 runs on one laptop.
 
 More: https://kamal-mehta.com/?r=github#/p/local-ai-board · kamalmehta.ai@gmail.com
 
