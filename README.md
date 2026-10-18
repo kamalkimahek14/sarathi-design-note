@@ -36,6 +36,8 @@ Job post → local LLM → tailored resume and cover letter → claim check → 
 
 A document fails if any claim does not trace to the master resume. The agent never presses Submit; a person does.
 
+In use, 9–15 Oct 2026: 17 applications prepared (a tailored resume and cover letter each), 2 submitted, both with my own Submit press, and no interviews yet. The one form the agent filled with me took 4 minutes.
+
 ## Privacy by design
 
 - All data lives in one folder, outside the code.
