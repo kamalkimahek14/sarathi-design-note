@@ -48,7 +48,7 @@ A document fails if any claim does not trace to the master resume. The agent nev
 - 3,217 automated tests, all passing in the full run of 12 Oct 2026.
 - Mitra's held-out pass rate: 47.7% → 77.3% (21 → 34 of 44 test prompts), first vs latest round, each set written fresh by a separate agent. Fixes are made on the training set; each blind set is new.
 - Changes are scored on held-out sets they were never tuned on.
-- AI coding agents write the code to my specs; the tests and the held-out checks decide what ships.
+- Built with AI-assisted coding to my specs; the tests and the held-out checks decide what ships.
 
 ## Limits
 
