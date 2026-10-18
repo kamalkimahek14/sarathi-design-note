@@ -52,7 +52,7 @@ A document fails if any claim does not trace to the master resume. The agent nev
 
 ## Limits
 
-- Each held-out set has 44 test prompts, so one prompt moves the pass rate by about 2.3 points, and each round's set is new.
+- Each held-out set has 40–44 test prompts (44 in the first and latest rounds), so one prompt moves the pass rate by about 2.3 points, and each round's set is new.
 - The latency figures are medians of 3 runs on one laptop.
 
 More: https://kamal-mehta.com/?r=github#/p/local-ai-board · kamalmehta.ai@gmail.com
