@@ -25,7 +25,7 @@ An assistant that handles mail, a calendar and job applications sees everything 
 - **Speech out:** AI4Bharat Indian voices.
 
 Measured:
-- First audio of a three-word reply: 1.8 s → 0.3 s after moving the voice to the GPU (median of 3 runs).
+- Time to first audio for a three-word reply: 1.8 s → 0.3 s after moving the voice to the GPU (median of 3 runs).
 - First sentence, timed live: 0.7–1.1 s.
 - Generation: 42–44 tokens per second on the 6 GB laptop GPU.
 - Scenes (physical actions Mitra acts out) triggered from conversation: 0 false triggers in 22 held-out chats; 38 of 42 asks caught.
