@@ -12,7 +12,9 @@ An assistant that handles mail, a calendar and job applications sees everything 
 
 ## How it is built
 
-The front end is React 19 with a three.js avatar, and the back end is one FastAPI process that listens on 127.0.0.1 only. Twenty local LLM agents (qwen3 on Ollama) share one RTX 3060 Laptop GPU with 6 GB by lease: 17 run on a schedule or a trigger, and 3 on a person's turn. A gateway is the only path to the network; it allows fixed hosts only and logs every request.
+React front end → FastAPI on 127.0.0.1 → 20 agents sharing the 6 GB GPU → a gateway to fixed hosts.
+
+The front end is React 19 with a three.js avatar, and the back end is one FastAPI process that listens on 127.0.0.1 only. Twenty local LLM agents (qwen3 on Ollama) share one RTX 3060 Laptop GPU with 6 GB by lease: while a live conversation holds the GPU, renewed on every turn, the other agents wait or reuse its settings. 17 run on a schedule or a trigger, and 3 on a person's turn. A gateway is the only path to the network; it allows fixed hosts only and logs every request.
 
 ## Mitra, the voice assistant
 
