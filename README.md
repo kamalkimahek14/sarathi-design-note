@@ -12,10 +12,7 @@ An assistant that handles mail, a calendar and job applications sees everything 
 
 ## How it is built
 
-- **Front end:** React 19, with a three.js avatar.
-- **Back end:** FastAPI, one process, on 127.0.0.1 only.
-- **Agents:** 20 local LLM agents share one GPU by lease; 17 run on a schedule or a trigger, 3 on a person's turn. The model is qwen3 on Ollama, on an RTX 3060 Laptop GPU with 6 GB.
-- **Gateway:** the only path to the network. It allows fixed hosts only and logs every request.
+The front end is React 19 with a three.js avatar, and the back end is one FastAPI process that listens on 127.0.0.1 only. Twenty local LLM agents (qwen3 on Ollama) share one RTX 3060 Laptop GPU with 6 GB by lease: 17 run on a schedule or a trigger, and 3 on a person's turn. A gateway is the only path to the network; it allows fixed hosts only and logs every request.
 
 ## Mitra, the voice assistant
 
@@ -25,8 +22,8 @@ An assistant that handles mail, a calendar and job applications sees everything 
 - **Speech out:** AI4Bharat Indian voices.
 
 Measured:
-- Text-to-speech time to first audio for a three-word reply: 1.8 s → 0.3 s after moving the voice to the GPU (median of 3 runs).
-- First sentence, timed live: 0.7–1.1 s.
+- TTS synthesis latency (three-word reply): 1.8 s → 0.3 s after moving the voice to the GPU (median of 3 runs).
+- Time to first audio (first sentence, timed live): 0.7–1.1 s.
 - Generation: 42–44 tokens per second on the 6 GB laptop GPU.
 - Scenes (physical actions Mitra acts out) triggered from conversation: 0 false positives in 22 held-out chats; recall 38 of 42.
 
